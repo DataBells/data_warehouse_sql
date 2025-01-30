@@ -13,12 +13,13 @@ dwh_create_date TIMESTAMP DEFAULT now()
 
 create table if not exists silver.crm_prd_info (
 prd_id INT,
+cat_id VARCHAR(50), 
 prd_key VARCHAR(50),
 prd_nm VARCHAR(50),
 prd_cost INT,
 prd_line VARCHAR(50),
-prd_start_dt TIMESTAMP,
-prd_end_dt TIMESTAMP,
+prd_start_dt Date,
+prd_end_dt Date,
 dwh_create_date TIMESTAMP DEFAULT now()
 );
 
