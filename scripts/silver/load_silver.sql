@@ -1,4 +1,4 @@
--- loading clean, tranform, standardized data of crm_cust_info to silver 
+-- loading clean, tranform, standardized data of silver.crm_cust_info 
 INSERT INTO silver.crm_cust_info (
     cst_id, 
     cst_key, 
@@ -32,8 +32,10 @@ row_number() over (partition by cst_id order by cst_create_date desc) as flag_la
 from bronze.crm_cust_info
 
 )t where flag_last = 1; 
-
+-- check data
 select * from silver.crm_cust_info;
+
+-- loading clean, tranform, standardized data of silver.crm_prd_info 
 
 insert into silver.crm_prd_info (
 prd_id,
@@ -64,5 +66,51 @@ cast(
     as DATE
 ) as prd_end_dt
 from bronze.crm_prd_info;
-
+-- check data
 select * from silver.crm_prd_info;
+
+-- loading clean, tranform, standardized data of silver.crm_sales_details  
+
+INSERT INTO silver.crm_sales_details (
+			sls_ord_num,
+			sls_prd_key,
+			sls_cust_id,
+			sls_order_dt,
+			sls_ship_dt,
+			sls_due_dt,
+			sls_sales,
+			sls_quantity,
+			sls_price
+)
+select
+sls_ord_num,
+sls_prd_key,
+sls_cust_id,
+case 
+    when sls_order_dt = '0' or length(sls_order_dt::TEXT) != 8 then null
+    else TO_DATE(sls_order_dt::TEXT, 'YYYYMMDD')
+end as sls_order_dt,
+case 
+    when sls_ship_dt = '0' or length(sls_ship_dt::TEXT) != 8 then null
+    else TO_DATE(sls_ship_dt::TEXT, 'YYYYMMDD')
+end as sls_ship_dt,
+case 
+    when sls_due_dt = '0' or length(sls_due_dt::TEXT) != 8 then null
+    else TO_DATE(sls_due_dt::TEXT, 'YYYYMMDD')
+end as sls_due_dt,
+case 
+	when sls_sales is null or sls_sales <= 0 or sls_sales != sls_quantity * abs(sls_price) 
+	then sls_quantity * abs(sls_price)
+	else sls_sales
+end as sls_sales,
+sls_quantity,
+CASE 
+	when sls_price is null or sls_price <= 0 
+	then sls_sales / nullif(sls_quantity, 0)
+	else sls_price  
+	end as sls_price
+
+from bronze.crm_sales_details;
+-- check data
+select * from silver.crm_sales_details;
+
