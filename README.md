@@ -1,4 +1,5 @@
 # data_warehouse_sql
+## Domain: E-commerce 
 
 Building a modern data warehouse with SQL including ETL
 
