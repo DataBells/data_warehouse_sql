@@ -1,0 +1,6 @@
+# Requirements for the project
+# Database
+# PostgreSQL 
+# DrawIO - for designing data
+# Git -  versioning
+# Any tool for documentation like Notion or Confluence 
