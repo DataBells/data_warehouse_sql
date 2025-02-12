@@ -40,3 +40,55 @@ This project implements a **Modern Data Warehouse** using **PostgreSQL**, struct
 ---
 
 ## 📂 Project Structure
+![](https://www.googleapis.com/download/storage/v1/b/kaggle-user-content/o/inbox%2F23961675%2F445f365ea1905a97dff13af6d7318612%2Ffile_structure.jpg?generation=1739372274632451&alt=media) <br>
+
+
+---
+
+## 🚀 Getting Started
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/DataBells/data_warehouse_sql.git
+
+## 🛠️ Set Up PostgreSQL
+
+### 1. **Install PostgreSQL**
+   - Download and install PostgreSQL from the official website: [https://www.postgresql.org/download/](https://www.postgresql.org/download/).
+   - Follow the installation wizard to complete the setup.
+
+### 2. **Create a Database**
+   - Open **pgAdmin** or the **psql** command-line tool.
+   - Run the following SQL command to create a new database:
+     ```sql
+     CREATE DATABASE modern_data_warehouse;
+     ```
+
+### 3. **Configure Connection Details**
+   - Update the connection details in the project configuration file (e.g., `config.json` or environment variables) with the following:
+     ```json
+     {
+       "host": "localhost",
+       "port": 5432,
+       "database": "modern_data_warehouse",
+       "user": "your_username",
+       "password": "your_password"
+     }
+     ```
+
+---
+
+## 🚀 Run ETL and Explore Data Models Pipelines
+
+### 1. **Navigate to the scripts Folder**
+   - Open the `scripts/` folder in your project directory.
+
+### 2. **Execute SQL Scripts**
+   - Run the SQL scripts in the following order to load data into the Bronze, Silver, and Gold layers
+## 📄 License
+This project is licensed under the MIT License. 
+
+## 🙌 Contributing
+Contributions are welcome! Please open an issue or submit a pull request for any improvements.
+
+This markdown provides a structured overview of your Modern Data Warehouse project, including key features, architecture, tools, and setup instructions. Let me know if you need further customization! 🚀
