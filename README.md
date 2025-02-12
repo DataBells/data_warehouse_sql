@@ -1,17 +1,42 @@
-# data_warehouse_sql
-## Domain: E-commerce 
+# Modern Data Warehouse Project
 
-Building a modern data warehouse with SQL including ETL
+## 📝 Project Overview
 
-<br>
+This project implements a **Modern Data Warehouse** using **PostgreSQL**, structured with the **Medallion Architecture** (Bronze, Silver, and Gold layers). It integrates and analyzes structured data from **CRM (Customer Relationship Management)** and **ERP (Enterprise Resource Planning)** systems.
 
-Table Names <br>
-bronze.crm_cust_info <br>
-bronze.crm_prd_info <br>
-bronze.crm_sales_details <br>
-bronze.erp_cust_az12 <br>
-bronze.erp_loc_a101 <br>
-bronze.erp_px_cat_g1v2 <br>
+---
 
-**Under Working** <br>
-Update Frequency: **Daily**
+## 🔹 Key Features
+
+### **Data Integration**
+- Combining structured CRM and ERP data into a unified data warehouse.
+
+### **ETL Pipelines**
+- **Extract, Transform, and Load (ETL)** processes implemented using **SQL** to ensure data is cleaned, transformed, and loaded efficiently.
+
+### **Data Modeling**
+- Utilizes a **Star Schema** with **fact and dimension tables** for optimized query performance and analytical reporting.
+
+### **Scalability**
+- Designed to handle large datasets and support efficient analytical queries, ensuring scalability as data grows.
+
+---
+
+## � Architecture Overview
+
+### **Medallion Architecture Layers**
+1. **Bronze Layer**: Raw data ingestion from CRM and ERP systems.
+2. **Silver Layer**: Cleaned and transformed data, ready for analysis.
+3. **Gold Layer**: Aggregated and enriched data for business reporting and insights.
+
+---
+
+## 🛠️ Tools & Technologies
+- **Database**: PostgreSQL
+- **ETL**: SQL-based pipelines
+- **Data Modeling**: Star Schema
+- **Data Sources**: CRM & ERP systems
+
+---
+
+## 📂 Project Structure
